@@ -1,0 +1,75 @@
+{
+  "name": "lxly-crosschain-forwarder",
+  "description": "Core contracts for the Polygon Hermez zkEVM",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xPolygonHermez/contracts-zkEVM.git"
+  },
+  "keywords": [
+    "zkevm",
+    "snark",
+    "polygon",
+    "hermez",
+    "stark",
+    "EVM",
+    "ethereum",
+    "blockchain"
+  ],
+  "files": [
+    "contracts",
+    "index.js",
+    "compiled-contracts",
+    "src"
+  ],
+  "dependencies": {
+    "axios": "^1.4.0",
+    "chai": "^4.3.7",
+    "ethers": "^5.7.2",
+    "hardhat-deploy": "^0.11.34",
+    "solidity-docgen": "^0.6.0-beta.35"
+  },
+  "devDependencies": {
+    "@0xpolygonhermez/zkevm-commonjs": "github:0xPolygonHermez/zkevm-commonjs#develop",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@nomiclabs/hardhat-waffle": "^2.0.5",
+    "@openzeppelin/contracts": "4.8.2",
+    "@openzeppelin/contracts-upgradeable": "4.8.2",
+    "@openzeppelin/hardhat-upgrades": "1.22.1",
+    "@openzeppelin/test-helpers": "0.5.16",
+    "circomlibjs": "0.1.1",
+    "dotenv": "^8.6.0",
+    "ethereum-waffle": "^3.4.4",
+    "ffjavascript": "^0.2.57",
+    "hardhat": "^2.13.0",
+    "hardhat-dependency-compiler": "^1.1.3",
+    "hardhat-gas-reporter": "^1.0.9",
+    "prettier": "^2.8.4",
+    "prettier-plugin-solidity": "^1.1.3",
+    "solc-0.8": "npm:solc@0.8.17",
+    "solidity-coverage": "^0.7.22"
+  },
+  "scripts": {
+    "test": "npx hardhat test test/contracts/**.test.js",
+    "deploy:sender:goerli": "npx hardhat deploy --tags Sender --network goerli",
+    "deploy:forwarder:goerli": "npx hardhat deploy --tags Forwarder --network goerli",
+    "deploy:sender:mainnet": "npx hardhat deploy --tags Sender --network mainnet",
+    "deploy:forwarder:mainnet": "npx hardhat deploy --tags Forwarder --network mainnet",
+    "verify:forwarder:goerli": "npx hardhat run scripts/verify-forwarder.js --network goerli",
+    "verify:forwarder:polygonZKEVMTestnet": "npx hardhat run scripts/verify-forwarder.js --network polygonZKEVMTestnet",
+    "verify:forwarder:mainnet": "npx hardhat run scripts/verify-forwarder.js --network mainnet",
+    "verify:forwarder:polygonZKEVMMainnet": "npx hardhat run scripts/verify-forwarder.js --network polygonZKEVMMainnet",
+    "verify:sender:goerli": "npx hardhat run scripts/verify-sender.js --network goerli",
+    "verify:sender:polygonZKEVMTestnet": "npx hardhat run scripts/verify-sender.js --network polygonZKEVMTestnet",
+    "verify:sender:mainnet": "npx hardhat run scripts/verify-sender.js --network mainnet",
+    "verify:sender:polygonZKEVMMainnet": "npx hardhat run scripts/verify-sender.js --network polygonZKEVMMainnet",
+    "bridge:forwarder:goerli": "npx hardhat run scripts/bridge-call.js --network goerli",
+    "bridge:forwarder:polygonZKEVMTestnet": "npx hardhat run scripts/bridge-call.js --network polygonZKEVMTestnet",
+    "claim:forwarder:polygonZKEVMTestnet": "npx hardhat run scripts/claim-call.js --network polygonZKEVMTestnet",
+    "claim:forwarder:goerli": "npx hardhat run scripts/claim-call.js --network goerli",
+    "compile": "npx hardhat compile",
+    "coverage": "npx hardhat coverage",
+    "gas:report": "REPORT_GAS=true npx hardhat test",
+    "gas:report:file": "rm -f .openzeppelin/unknown-31337.json && REPORT_GAS=true REPORT_GAS_FILE=true npx hardhat test"
+  }
+}
