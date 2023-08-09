@@ -40,7 +40,7 @@ npm run test
 ## Deployment
 Fill `.env` with your private key `MAIN_ACCOUNT` and `ALCHEMY_KEY` for every network. If you want to verify the contracts also fill the `ETHERSCAN_API_KEY` and `POLYGONSCAN_API_KEY`
 
-To deploy use:`deploy:sender:goerli` for the `sender` and `deploy:forwarder:goerli` for the `forwarder`. These commands will deploy two identical instances of `forwarder` and `sender` contract on `goerli` and `polygonZKEVMTestnet` at the same address and this will replace existing deployment int `./deployments/goerli`. 
+To deploy use:`deploy:sender:goerli` for the `sender` and `deploy:forwarder:goerli` for the `forwarder`. These commands will deploy two identical instances of `forwarder` and `sender` contract on `goerli` and `polygonZKEVMTestnet` at the same address and this will replace existing addresses in `./deploy/sender.json` and `./deploy/forwarder.json. 
 
 To verify contracts use npm run `verify:sender:${network}` and npm run `verify:forwarder:${network}` for each instance
 
